@@ -149,7 +149,7 @@ type DateTimeGenerator struct {
 
 // Generate type
 func (dg *DateTimeGenerator) Generate() interface{} {
-	r := rand.Int63n(10000000000)
+	r := rand.Int63n(time.Now().Unix())
 	// approximately 1 out of every MinimumOcurrance will be datetime minimum
 	if dg.MinimumOcurrance != 0 && r%int64(dg.MinimumOcurrance) == 0 {
 		return "0001-01-01T00:00:00"
